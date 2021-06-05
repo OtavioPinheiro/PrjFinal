@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="br.edu.fatecmm.prjfinal.EmpregadoGUI">
+  <grid id="27dc6" binding="panelEmpregado" layout-manager="GridLayoutManager" row-count="11" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="1010" height="764"/>
+    </constraints>
+    <properties>
+      <background color="-1052689"/>
+      <enabled value="false"/>
+      <maximumSize width="900" height="750"/>
+      <minimumSize width="600" height="500"/>
+      <name value="Cadastro Empregados"/>
+      <preferredSize width="650" height="350"/>
+      <requestFocusEnabled value="false"/>
+      <visible value="true"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="33986" class="javax.swing.JLabel" binding="labelCodigoEmpregado">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Código do Empregado:"/>
+        </properties>
+      </component>
+      <component id="2cdd7" class="javax.swing.JTextField" binding="textCodigoEmpregado">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <alignmentX value="0.5"/>
+          <text value=""/>
+          <toolTipText value="Código do Empregado"/>
+        </properties>
+      </component>
+      <component id="7b34c" class="javax.swing.JLabel" binding="labelNomeEmpregado">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Nome do Empregado:"/>
+        </properties>
+      </component>
+      <component id="b8258" class="javax.swing.JLabel" binding="labelSetor">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Setor:"/>
+        </properties>
+      </component>
+      <component id="51d69" class="javax.swing.JTextField" binding="textNomeEmpregado">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="4c897" class="javax.swing.JTextField" binding="textSetor">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="bd61" class="javax.swing.JTextField" binding="textSalarioEmpregado">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="aa405" class="javax.swing.JButton" binding="buttonCalcular">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Calcular Recolhimento INSS"/>
+        </properties>
+      </component>
+      <component id="89a4e" class="javax.swing.JLabel" binding="labelValorCalculado">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="R$"/>
+        </properties>
+      </component>
+      <component id="4ae19" class="javax.swing.JButton" binding="buttonCadastrar">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cadastrar"/>
+        </properties>
+      </component>
+      <component id="fff8f" class="javax.swing.JLabel" binding="labelRecolhimento">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Recolhimento:"/>
+        </properties>
+      </component>
+      <component id="6c519" class="javax.swing.JButton" binding="buttonApresentar">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Apresentar Empregados"/>
+        </properties>
+      </component>
+      <component id="4f62e" class="javax.swing.JLabel" binding="labelSalarioEmpregado">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Salário Bruto:"/>
+        </properties>
+      </component>
+      <component id="64359" class="javax.swing.JLabel" binding="labelErroCodigo">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Erro"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="14446" class="javax.swing.JLabel" binding="labelErroNome">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Erro"/>
+        </properties>
+      </component>
+      <component id="31033" class="javax.swing.JLabel" binding="labelErroSetor">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-16777216"/>
+          <text value="Erro"/>
+        </properties>
+      </component>
+      <component id="ecbe3" class="javax.swing.JLabel" binding="labelErroSalario">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <foreground color="-16777216"/>
+          <text value="Erro"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
