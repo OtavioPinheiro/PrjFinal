@@ -14,37 +14,62 @@ public class GerenciarEmpregadosGUI extends JFrame {
 
   public GerenciarEmpregadosGUI() {
     criarTabela();
-    buttonRemover.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
+    buttonRemover.addActionListener(e -> {
+      habilitarBotoes(!GerenciarEmpregados.listaEmpregados.isEmpty());
+      int[] empregadosSelecionados = jTableEmpregados.getSelectedRows();
+      if (empregadosSelecionados == null) {
+        JOptionPane.showMessageDialog(
+            null,
+            "Selecione um empregado para remove-lo!",
+            "Remover empregado",
+            JOptionPane.WARNING_MESSAGE
+        );
+      }
+      else {
+        DefaultTableModel dadosTabelaEmpregados = (DefaultTableModel) jTableEmpregados.getModel();
+        GerenciarEmpregados gerenciarEmpregados = new GerenciarEmpregados();
+        for (int empregadoSelecionado : empregadosSelecionados) {
+          int codigoEmpregado = Integer.parseInt(
+              String.valueOf(dadosTabelaEmpregados.getValueAt(empregadoSelecionado, 0)));
+          gerenciarEmpregados.removerEmpregado(gerenciarEmpregados.buscarEmpregado(codigoEmpregado));
+        }
+        criarTabela();
         habilitarBotoes(!GerenciarEmpregados.listaEmpregados.isEmpty());
-        int[] empregadosSelecionados = jTableEmpregados.getSelectedRows();
-        if (empregadosSelecionados == null) {
-          JOptionPane.showMessageDialog(
-              null,
-              "Selecione um empregado para remove-lo!",
-              "Remover empregado",
-              JOptionPane.WARNING_MESSAGE
-          );
-        }
-        else {
-          DefaultTableModel dadosTabelaEmpregados = (DefaultTableModel) jTableEmpregados.getModel();
-          GerenciarEmpregados gerenciarEmpregados = new GerenciarEmpregados();
-          for (int empregadoSelecionado : empregadosSelecionados) {
-            int codigoEmpregado = Integer.parseInt(
-                String.valueOf(dadosTabelaEmpregados.getValueAt(empregadoSelecionado, 0)));
-            gerenciarEmpregados.removerEmpregado(gerenciarEmpregados.buscarEmpregado(codigoEmpregado));
-          }
-          criarTabela();
-          habilitarBotoes(!GerenciarEmpregados.listaEmpregados.isEmpty());
-          JOptionPane.showMessageDialog(
-              null,
-              "Empregado removido com sucesso!",
-              "Remover empregado",
-              JOptionPane.PLAIN_MESSAGE
-          );
-          fecharTabela(e);
-        }
+        JOptionPane.showMessageDialog(
+            null,
+            "Empregado removido com sucesso!",
+            "Remover empregado",
+            JOptionPane.PLAIN_MESSAGE
+        );
+        fecharTabela(e);
+      }
+    });
+    buttonRemoverEmpregados.addActionListener(e -> {
+      habilitarBotoes(!GerenciarEmpregados.listaEmpregados.isEmpty());
+      Object[] opcoes = {"Sim", "Não"};
+      int respostaJanela = JOptionPane.showOptionDialog(
+          null,
+          "Tem certeza de que deseja remover todos os empregados?\n" +
+              "Essa ação não poderá ser desfeita!",
+          "Remover todos os empregados",
+          JOptionPane.DEFAULT_OPTION,
+          JOptionPane.WARNING_MESSAGE,
+          null,
+          opcoes,
+          opcoes[0]
+      );
+      if (respostaJanela == 0) {
+        GerenciarEmpregados gerenciarEmpregados = new GerenciarEmpregados();
+        gerenciarEmpregados.removerTodosEmpregados();
+        criarTabela();
+        habilitarBotoes(!GerenciarEmpregados.listaEmpregados.isEmpty());
+        JOptionPane.showMessageDialog(
+            null,
+            "Empregados removidos com sucesso!",
+            "Remover empregados",
+            JOptionPane.PLAIN_MESSAGE
+        );
+        fecharTabela(e);
       }
     });
   }
