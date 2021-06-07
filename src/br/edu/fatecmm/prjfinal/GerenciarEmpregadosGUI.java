@@ -17,7 +17,7 @@ public class GerenciarEmpregadosGUI extends JFrame {
     buttonRemover.addActionListener(e -> {
       habilitarBotoes(!GerenciarEmpregados.listaEmpregados.isEmpty());
       int[] empregadosSelecionados = jTableEmpregados.getSelectedRows();
-      if (empregadosSelecionados == null) {
+      if (empregadosSelecionados.length == 0) {
         JOptionPane.showMessageDialog(
             null,
             "Selecione um empregado para remove-lo!",
