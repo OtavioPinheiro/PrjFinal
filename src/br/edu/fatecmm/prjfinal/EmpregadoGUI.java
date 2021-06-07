@@ -6,6 +6,7 @@ import br.edu.fatecmm.prjfinal.utils.ErrorHandler;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Locale;
 
 public class EmpregadoGUI {
   private JPanel panelEmpregado;
@@ -56,14 +57,14 @@ public class EmpregadoGUI {
           empregado.setCodigoEmpregado(Integer.parseInt(textCodigoEmpregado.getText()));
           labelErroCodigo.setVisible(false);
           textCodigoEmpregado.setBorder(BorderFactory.createEtchedBorder(1,
-              null,
-              new Color(122, 138, 153)
+            null,
+            new Color(122, 138, 153)
           ));
           HabilitarCalcular();
           HabilitarCadastrar();
           HabilitarApresentar();
         } catch (ErrorHandler.codigoInadequado |
-            ErrorHandler.codigoIncompleto erro) {
+          ErrorHandler.codigoIncompleto erro) {
           DesabilitarBotoes();
           HabilitarApresentar();
           labelErroCodigo.setText(erro.getMessage());
@@ -85,19 +86,18 @@ public class EmpregadoGUI {
       @Override
       public void keyReleased(KeyEvent e) {
         try {
-          dados.nomeOK(textNomeEmpregado.getText());
+          campoNomeOk = dados.nomeOK(textNomeEmpregado.getText());
           empregado.setNomeEmpregado(textNomeEmpregado.getText());
           labelErroNome.setVisible(false);
           textNomeEmpregado.setBorder(BorderFactory.createEtchedBorder(1,
-              null,
-              new Color(122, 138, 153)
+            null,
+            new Color(122, 138, 153)
           ));
-          campoNomeOk = true;
           HabilitarCalcular();
           HabilitarCadastrar();
           HabilitarApresentar();
         } catch (ErrorHandler.nomeInadequado |
-            ErrorHandler.nomeIncompleto erro) {
+          ErrorHandler.nomeIncompleto erro) {
           DesabilitarBotoes();
           HabilitarApresentar();
           labelErroNome.setText(erro.getMessage());
@@ -112,19 +112,18 @@ public class EmpregadoGUI {
       @Override
       public void keyReleased(KeyEvent e) {
         try {
-          dados.setorOK(textSetor.getText());
+          campoSetorOk = dados.setorOK(textSetor.getText());
           empregado.setSetor(textSetor.getText());
           labelErroSetor.setVisible(false);
           textSetor.setBorder(BorderFactory.createEtchedBorder(1,
-              null,
-              new Color(122, 138, 153)
+            null,
+            new Color(122, 138, 153)
           ));
-          campoSetorOk = true;
           HabilitarCalcular();
           HabilitarCadastrar();
           HabilitarApresentar();
         } catch (ErrorHandler.setorInadequado |
-            ErrorHandler.setorIncompleto erro) {
+          ErrorHandler.setorIncompleto erro) {
           DesabilitarBotoes();
           HabilitarApresentar();
           labelErroSetor.setText(erro.getMessage());
@@ -142,19 +141,18 @@ public class EmpregadoGUI {
           if(textSalarioEmpregado.getText().matches("([0-9]){1,3}(\\.)([0-9])+$+")) {
             textSalarioEmpregado.setText(textSalarioEmpregado.getText().replaceAll("(\\.)",""));
           }
-          dados.salarioOK(textSalarioEmpregado.getText().replaceAll("(,)","."));
+          campoSalarioOk = dados.salarioOK(textSalarioEmpregado.getText().replaceAll("(,)","."));
           empregado.setSalarioBruto(Double.parseDouble(textSalarioEmpregado.getText().replaceAll("(,)",".")));
           labelErroSalario.setVisible(false);
           textSalarioEmpregado.setBorder(BorderFactory.createEtchedBorder(1,
-              null,
-              new Color(122, 138, 153)
+            null,
+            new Color(122, 138, 153)
           ));
-          campoSalarioOk = true;
           HabilitarCalcular();
           HabilitarCadastrar();
           HabilitarApresentar();
         } catch (ErrorHandler.limiteDoSalarioExcedido |
-            ErrorHandler.salarioIncompleto erro) {
+          ErrorHandler.salarioIncompleto erro) {
           DesabilitarBotoes();
           HabilitarApresentar();
           labelErroSalario.setText(erro.getMessage());
@@ -187,32 +185,32 @@ public class EmpregadoGUI {
           Object[] opcoes = {"Sim", "Não"};
           if(gerenciarEmpregados.empregadoJacadastrado(empregado)) {
             int respostaJanela = JOptionPane.showOptionDialog(
-                null,
-                "Este usuário já foi adicionado. Deseja atualizá-lo?",
-                "Atualizar empregado",
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                opcoes,
-                opcoes[0]
+              null,
+              "Este usuário já foi adicionado. Deseja atualizá-lo?",
+              "Atualizar empregado",
+              JOptionPane.DEFAULT_OPTION,
+              JOptionPane.QUESTION_MESSAGE,
+              null,
+              opcoes,
+              opcoes[0]
             );
             if (respostaJanela == 0) {
               gerenciarEmpregados.atualizarEmpregado(empregado);
               JOptionPane.showMessageDialog(
-                  null,
-                  "Empregado atualizado com sucesso!",
-                  "Tela de sucesso",
-                  JOptionPane.PLAIN_MESSAGE
+                null,
+                "Empregado atualizado com sucesso!",
+                "Tela de sucesso",
+                JOptionPane.PLAIN_MESSAGE
               );
             }
           }
           else {
             gerenciarEmpregados.adicionarEmpregado(empregado);
             JOptionPane.showMessageDialog(
-                null,
-                "Empregado adicionado com sucesso!",
-                "Tela de sucesso",
-                JOptionPane.PLAIN_MESSAGE
+              null,
+              "Empregado adicionado com sucesso!",
+              "Tela de sucesso",
+              JOptionPane.PLAIN_MESSAGE
             );
           }
           limparFormulario();
@@ -252,10 +250,10 @@ public class EmpregadoGUI {
 
   private void HabilitarCadastrar() {
     if (campoCodigoOk &&
-        campoNomeOk &&
-        campoSetorOk &&
-        campoSalarioOk &&
-        campoRecolhimentoOk
+      campoNomeOk &&
+      campoSetorOk &&
+      campoSalarioOk &&
+      campoRecolhimentoOk
     ) {
       buttonCadastrar.setEnabled(true);
     }
@@ -267,9 +265,9 @@ public class EmpregadoGUI {
 
   private void HabilitarCalcular() {
     if (campoCodigoOk &&
-        campoNomeOk &&
-        campoSetorOk &&
-        campoSalarioOk
+      campoNomeOk &&
+      campoSetorOk &&
+      campoSalarioOk
     ) {
       buttonCalcular.setEnabled(true);
     }

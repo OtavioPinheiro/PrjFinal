@@ -20,7 +20,7 @@ public class DataHandler {
 
   public boolean nomeOK(String nome) throws ErrorHandler.nomeInadequado, ErrorHandler.nomeIncompleto {
     boolean estaCompleto = !nome.isEmpty();
-    boolean estaAdequado = nome.matches("(^[a-zA-ZáÁóÓéÉíÍÚúÃãÕõÂâÊêÎîÔôÛûçÇ ]{2,}$)+");
+    boolean estaAdequado = nome.matches("([a-zA-ZáÁóÓéÉíÍÚúÃãÕõÂâÊêÎîÔôÛûçÇ]{2,} ?)+");
     if(estaCompleto) {
       if (estaAdequado) {
         return true;
