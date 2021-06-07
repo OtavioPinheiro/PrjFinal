@@ -186,7 +186,7 @@ public class EmpregadoGUI {
           if(gerenciarEmpregados.empregadoJacadastrado(empregado)) {
             int respostaJanela = JOptionPane.showOptionDialog(
               null,
-              "Este usuário já foi adicionado. Deseja atualizá-lo?",
+              "Já existe um usuário cadastrado com esse código. Deseja atualizá-lo?",
               "Atualizar empregado",
               JOptionPane.DEFAULT_OPTION,
               JOptionPane.QUESTION_MESSAGE,

@@ -52,7 +52,7 @@ public class DataHandler {
 
   public boolean salarioOK(String salario) throws ErrorHandler.limiteDoSalarioExcedido, ErrorHandler.salarioIncompleto {
     boolean estaCompleto = !salario.isEmpty();
-    boolean estaAdequado = estaCompleto && Double.parseDouble(salario) >= 1_100 && Double.parseDouble(salario) <= 1_000_000_000;
+    boolean estaAdequado = estaCompleto && Double.parseDouble(salario) <= 1_000_000_000;
     if(estaCompleto) {
       if (estaAdequado) {
         return true;

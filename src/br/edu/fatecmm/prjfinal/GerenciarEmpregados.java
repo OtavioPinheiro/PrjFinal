@@ -24,7 +24,7 @@ public class GerenciarEmpregados {
   }
 
   public void atualizarEmpregado(Empregado empregado) {
-    removerEmpregado(empregado);
+    removerEmpregado(buscarEmpregado(empregado.getCodigoEmpregado()));
     adicionarEmpregado(empregado);
   }
 
@@ -39,8 +39,8 @@ public class GerenciarEmpregados {
   public boolean empregadoJacadastrado(Empregado empregado) {
     boolean jaCadastrado = false;
     if (!listaEmpregados.isEmpty()) {
-      for (Empregado listaEmpregado : listaEmpregados) {
-        jaCadastrado = listaEmpregado.getCodigoEmpregado() == empregado.getCodigoEmpregado();
+      for (Empregado empregadoCadastrado : listaEmpregados) {
+        jaCadastrado = empregadoCadastrado.getCodigoEmpregado() == empregado.getCodigoEmpregado();
       }
     }
     return jaCadastrado;
